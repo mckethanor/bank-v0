@@ -1,0 +1,29 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: BANK
+    network: mainnet
+    source:
+      address: "0x2d94AA3e47d9D5024503Ca8491fcE9A2fB4DA198"
+      abi: BANK
+      startBlock: 12365456
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - User
+        - Transfer
+        - UserCounter
+        - TransferCounter
+        - GenesisClaimed
+        - SecondClaimed
+      abis:
+        - name: BANK
+          file: BANK/abis/BANK.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: BANK/BANK.wasm

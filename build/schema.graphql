@@ -1,0 +1,37 @@
+type User @entity {
+  id: ID!
+  address: String!
+  balance: BigInt!
+  transactionCount: Int!
+}
+
+type Transfer @entity {
+  id: ID!
+  from_address: String!
+  to_address: String!
+  amount: BigInt!
+  timestamp: BigInt!
+}
+
+type UserCounter @entity {
+  id: ID!
+  count: Int!
+}
+
+type TransferCounter @entity {
+  id: ID!
+  count: Int!
+  totalTransferred: BigInt!
+}
+
+type GenesisClaimed @entity {
+  id: ID!
+  count: Int!
+  totalBankClaimed: BigInt!
+}
+
+type SecondClaimed @entity {
+  id: ID!
+  count: Int!
+  totalBankClaimed: BigInt!
+}
